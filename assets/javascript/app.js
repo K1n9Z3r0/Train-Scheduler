@@ -147,7 +147,7 @@ database.ref().on("child_added", function (childSnapshot) {
   console.log("Arrival time: " + moment(nextArrival).format("HH:mm"));
 
 
-  //Create the new row
+  //Create new row
   var newRow = $("<tr>").append(
     $("<td>").text(tName),
     $("<td>").text(tDestination),
@@ -156,6 +156,6 @@ database.ref().on("child_added", function (childSnapshot) {
     $("<td>").text(minutesAway)
   );
 
-  //Append the new row to the table
+  //Append new row to table
   $("#full-table").append(newRow);
 })

@@ -6,12 +6,12 @@
     <meta charset="UTF-8">
     <title>Train Schedule</title>
 
-    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
-    
+
     <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase.js"></script>
 </head>
 
@@ -23,7 +23,7 @@
 
         <div>
             <div>Current Train Schedule</div>
-            <div class="card-body">
+            <div>
                 <table class="table">
                     <thead>
                         <tr>
@@ -40,7 +40,7 @@
                             <td id="destination"></td>
                             <td id="frequency"></td>
                             <td id="next-arrival"></td>
-                            <td id="minutes-away"></td>  
+                            <td id="minutes-away"></td>
                         </tr>
 
                     </tbody>
@@ -49,12 +49,12 @@
         </div>
         <br>
 
-        
+
         <div>
             <div>Add a Train</div>
 
             <div>
-                     <form method="POST" action="form-handler" onsubmit="return checkForm(this);">
+                <form method="POST" action="form-handler" onsubmit="return checkForm(this);">
                     <div>
                         <label for="train-name">Train Name</label>
                         <input class="form-control" id="train-name" type="text" required>
@@ -85,8 +85,9 @@
 
     <script src="https://code.jquery.com/jquery.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
     <script src="assets/javascript/app.js"></script>
 </body>
+
 </html>
