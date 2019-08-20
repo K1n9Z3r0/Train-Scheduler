@@ -1,12 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="en-us">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+    <title>Train Schedule</title>
+
     
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+    
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase.js"></script>
+</head>
+
+<body>
+    <div>
+        <div>
+            <h1>Train Schedule</h1>
+        </div>
+
+        <div>
+            <div>Current Train Schedule</div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Train Name</th>
+                            <th>Destination</th>
+                            <th>Frequency (min)</th>
+                            <th>Next Arrival</th>
+                            <th>Minutes Away</th>
+                        </tr>
+                    </thead>
+                    <tbody id="full-table">
+                        <tr>
+                            <td id="name"></td>
+                            <td id="destination"></td>
+                            <td id="frequency"></td>
+                            <td id="next-arrival"></td>
+                            <td id="minutes-away"></td>  
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+
+        
+        <div>
+            <div>Add a Train</div>
+
+            <div>
+                     <form method="POST" action="form-handler" onsubmit="return checkForm(this);">
+                    <div>
+                        <label for="train-name">Train Name</label>
+                        <input class="form-control" id="train-name" type="text" required>
+                        <div class="invalid-feedback" id="invalid-name"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="train-destination">Destination</label>
+                        <input class="form-control" id="train-destination" type="text" required>
+                        <div class="invalid-feedback" id="invalid-destination"></div>
+                    </div>
+                    <div class="form-group" id="firstTime">
+                        <label for="train-first-time">First Train Time (HH:mm - military time)</label>
+                        <input class="form-control" id="train-first-time" type="text" required>
+                        <div class="invalid-feedback" id="invalid-time"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="train-frequency">Frequency (min)</label>
+                        <input class="form-control" id="train-frequency" type="number" min="1" required>
+                        <div class="invalid-feedback" id="invalid-frequency"></div>
+                    </div>
+                    <button id="submit-button">Submit</button>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+    <script src="assets/javascript/app.js"></script>
 </body>
 </html>
